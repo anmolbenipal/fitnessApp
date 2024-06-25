@@ -27,6 +27,16 @@ const PORT = process.env.PORT || 5000;
     res.send(`Hello Register World from the server`);
  });
 
+if (process.env.NODE_ENV === "production"){
+app.use(express.static("client"));
+const path = require("path);
+app.get("*",(req,res)=>{
+res.sendFile(path.resolve(__dirname,'client','build','index.html'));
+})
+                     }
+
+
+
 app.listen(PORT,()=>{
     console.log(`server is running at port no ${PORT}`);
 })
