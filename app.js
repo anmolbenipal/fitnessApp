@@ -39,6 +39,9 @@ const app = express();
 dotenv.config({ path: './config.env' });
 require('./db/conn');
 // const User = require('./model/userSchema');
+app.use(cors({
+  origin: 'https://fit-r6fvnautt-anmolbenipals-projects.vercel.app'
+}));
 
 app.use(express.json());
 app.use(cors()); // Use cors middleware without any specific options to allow all origins
